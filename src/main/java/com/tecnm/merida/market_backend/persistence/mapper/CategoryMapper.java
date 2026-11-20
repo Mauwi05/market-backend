@@ -2,7 +2,6 @@ package com.tecnm.merida.market_backend.persistence.mapper;
 
 import com.tecnm.merida.market_backend.domain.Category;
 import com.tecnm.merida.market_backend.persistence.entity.Categoria;
-import com.tecnm.merida.market_backend.persistence.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,6 +18,8 @@ public interface CategoryMapper {
             @Mapping(source = "estado", target = "active")
     })
     Category toCategory(Categoria categoria);
+
+    List<Category> toCategories(List<Categoria> categorias);
 
     @InheritInverseConfiguration
     @Mapping(target = "productos", ignore = true)
